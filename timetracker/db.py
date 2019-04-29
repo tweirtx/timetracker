@@ -1,4 +1,4 @@
-"""Provides database storage for the Dozer Discord bot"""
+"""Provides database storage"""
 
 import sqlalchemy
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, BigInteger

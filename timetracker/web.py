@@ -9,10 +9,11 @@ def serve_index():
     return flask.send_from_directory('/home/travis/PycharmProjects/timetracker', 'index.html')  # TODO relative path
 
 
-@app.route("/execute")
+@app.route("/execute", methods=['POST'])
 def execute():
-    args = flask.request.args
-    if args.get("user_id") is None:
+    args = flask.request.form.to_dict()
+    print(args)
+    if not args.get('user_id'):
         return "Error"
     return sign(args.get("user_id"))
 
