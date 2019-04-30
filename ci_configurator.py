@@ -12,7 +12,7 @@ if os.getenv("DB_TYPE") == "sqlite":
     print("Nothing to do!")
 elif os.getenv("DB_TYPE") == "postgres":
     print("Configuring postgres")
-    subprocess.call('sudo -u postgres psql "CREATE USER timetracker; CREATE DATABASE timetracker;"')
+    subprocess.call('sudo -u postgres psql "CREATE USER timetracker; CREATE DATABASE timetracker;"', shell=True)
     config['db_url'] = "postgres://timetracker:timetracker@localhost/timetracker"
     print("postgres is configured")
 elif os.getenv('DB_TYPE') == "mysql":
