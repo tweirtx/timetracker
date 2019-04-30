@@ -4,7 +4,7 @@ import json
 
 config = {
     'db_url': 'sqlite:///timetracker.db',
-    'signout_code': 0,
+    'signout_code': "000000",
     'minimum_hours': 0
 }
 config_file = 'config.json'

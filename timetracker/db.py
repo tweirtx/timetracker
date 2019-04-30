@@ -47,7 +47,7 @@ db_init(config['db_url'])
 
 class Members(DatabaseObject):
     __tablename__ = 'students'
-    student_id = Column(String, primary_key=True)
+    user_id = Column(String, primary_key=True)
     name = Column(String)
     signed_in = Column(Boolean, default=False)
     sign_in_time = Column(DateTime, nullable=True)
@@ -56,7 +56,7 @@ class Members(DatabaseObject):
 
 class VerboseLogs(DatabaseObject):
     __tablename__ = 'verboselogs'
-    student_id = Column(String, primary_key=True)
+    user_id = Column(String, primary_key=True)
     signing_in = Column(Boolean, primary_key=True)
     current_datetime = Column(DateTime, primary_key=True)
 
