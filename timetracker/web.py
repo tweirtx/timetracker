@@ -13,7 +13,7 @@ def serve_index():
 def execute():
     args = flask.request.form.to_dict()
     if not args.get('user_id'):
-        return "Error"
+        return "Error, no user ID found in request"
     return sign(args.get("user_id"))
 
 

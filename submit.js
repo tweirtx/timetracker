@@ -1,6 +1,9 @@
 
 function submit() {
-    alert("Test");
+    const userID = document.getElementById("user_id").value;
+    $.post('execute', {'user_id': userID}, function (data) {
+        alert(data);
+    });
 }
 
 document.addEventListener('readystatechange', addSubmit);

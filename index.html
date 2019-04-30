@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://tweirtx.github.io/bootstrap.css">
     <link rel="stylesheet" href="https://tweirtx.github.io/darkly.min.css">
     <script type="text/javascript" src="submit.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
     <div align="center">
@@ -13,7 +14,7 @@
         <p>Please enter your student ID and press enter</p>
         <form id="idForm"> <!-- action="/execute" method="post"> -->
             <label> User ID
-                <input type="text" name="user_id" class="form-control">
+                <input type="text" name="user_id" id="user_id" class="form-control" required>
                 <br>
                 <input type="submit">
             </label>
