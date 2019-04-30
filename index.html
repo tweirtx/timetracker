@@ -5,12 +5,13 @@
     <title>TimeTracker Web Interface</title>
     <link rel="stylesheet" href="https://tweirtx.github.io/bootstrap.css">
     <link rel="stylesheet" href="https://tweirtx.github.io/darkly.min.css">
+    <script type="text/javascript" src="submit.js"></script>
 </head>
 <body>
     <div align="center">
         <h1>TimeTracker Sign-In/Out Station</h1><br>
         <p>Please enter your student ID and press enter</p>
-        <form action="/execute" method="post" >
+        <form id="idForm"> <!-- action="/execute" method="post"> -->
             <label> User ID
                 <input type="text" name="user_id" class="form-control">
                 <br>

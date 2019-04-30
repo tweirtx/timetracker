@@ -12,7 +12,6 @@ def serve_index():
 @app.route("/execute", methods=['POST'])
 def execute():
     args = flask.request.form.to_dict()
-    print(args)
     if not args.get('user_id'):
         return "Error"
     return sign(args.get("user_id"))
@@ -21,6 +20,11 @@ def execute():
 @app.route('/report')
 def report():
     return "TODO"
+
+
+@app.route('/submit.js')
+def submit_js():
+    return flask.send_from_directory('/home/travis/PycharmProjects/timetracker', 'submit.js')
 
 
 def start():
