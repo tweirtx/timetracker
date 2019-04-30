@@ -1,2 +1,3 @@
 sqlalchemy
 flask
+flask_table
