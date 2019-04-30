@@ -24,3 +24,5 @@ install: pip install -Ur requirements.txt
 before_script: python3 ci_configurator.py
 script: python3 -m timetracker --test
 after_script: cat config.json
+
+after_failure: pyenv versions
