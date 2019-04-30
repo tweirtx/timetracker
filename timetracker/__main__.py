@@ -1,11 +1,6 @@
-from . import db
 from . import web
 from . import console
 import argparse
-import json
-
-
-# db.db_init(config.['db_url'])
 
 
 argparser = argparse.ArgumentParser()
