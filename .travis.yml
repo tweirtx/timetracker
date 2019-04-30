@@ -20,28 +20,29 @@ before_install:
 
 install: pip install -Ur requirements.txt
 
-matrix:
+jobs:
   include:
-    - job:
       - stage: test
-      - env: DB_TYPE=sqlite
+        env: DB_TYPE=sqlite
         os: linux
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
-      - env: DB_TYPE=postgres
+      - stage: test
+        env: DB_TYPE=postgres
         os: linux
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
-      - env: DB_TYPE=mysql
+      - stage: test
+        env: DB_TYPE=mysql
         os: linux
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
-    - job:
       - stage: deploy
-      - script: pyinstaller -F timetracker.spec
+        script: pyinstaller -F timetracker.spec
         os: linux
-      - script: pyinstaller -F timetracker.spec
+      - stage: deploy
+        script: pyinstaller -F timetracker.spec
         os: osx
