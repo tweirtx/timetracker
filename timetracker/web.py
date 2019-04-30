@@ -1,3 +1,4 @@
+import os
 from .signer import sign
 import flask
 
@@ -6,7 +7,7 @@ app = flask.Flask('timetracker')
 
 @app.route('/')
 def serve_index():
-    return flask.send_from_directory('/home/travis/PycharmProjects/timetracker', 'index.html')  # TODO relative path
+    return flask.send_from_directory(os.getcwd(), 'index.html')
 
 
 @app.route("/execute", methods=['POST'])
@@ -24,7 +25,7 @@ def report():
 
 @app.route('/submit.js')
 def submit_js():
-    return flask.send_from_directory('/home/travis/PycharmProjects/timetracker', 'submit.js')
+    return flask.send_from_directory(os.getcwd(), 'submit.js')
 
 
 def start():
