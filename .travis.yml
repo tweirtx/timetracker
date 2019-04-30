@@ -2,10 +2,6 @@ language: generic
 
 sudo: required
 
-services:
-  - postgresql
-  - mysql
-
 os:
   - osx
   - linux
@@ -18,11 +14,19 @@ env:
 brew_packages:
   - pyenv
 
-before_install: pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
+before_install:
+  - sudo service mysql start
+  - sudo service postgresql start
+  - psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('timetracker') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+  - sudo mysql_upgrade -u root -pnew_password
+  - sudo service mysql restart
+  - pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
+
 install: pip install -Ur requirements.txt
 
+before_script: python3 ci_configurator.py
 
-before_script: python3 ci_configurator.py && psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
 script: python3 -m timetracker --test
-after_script: cat config.json
 
+after_script: cat config.json
