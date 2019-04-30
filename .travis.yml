@@ -9,9 +9,10 @@ jobs:
       os: linux
 
       env:
-        - DB_TYPE=sqlite
-        - DB_TYPE=postgres
-        - DB_TYPE=mysql
+        matrix:
+          - DB_TYPE=sqlite
+          - DB_TYPE=postgres
+          - DB_TYPE=mysql
 
       brew_packages:
         - pyenv
@@ -38,8 +39,11 @@ jobs:
       after_script: cat config.json
 
     - stage: "Build Binaries"
+      os:
+        - linux
+        - osx
       install: pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3 && pip install -Ur requirements.txt
       script: pyinstaller timetracker/__main__.py -F
-      
+
 
 
