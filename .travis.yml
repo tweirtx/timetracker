@@ -15,7 +15,10 @@ env:
   - DB_TYPE=postgres
   - DB_TYPE=mysql
 
-before_install: ./pyenv_install.sh
+brew_packages:
+  - pyenv
+
+before_install: pyenv install 3.7.2 && pyenv global 3.7.2
 install: pip install -Ur requirements.txt
 
 before_script: python3 ci_configurator.py
