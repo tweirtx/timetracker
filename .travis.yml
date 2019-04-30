@@ -2,13 +2,11 @@ language: python
 
 sudo: required
 
+python: 3.6
+
 services:
   - postgresql
   - mysql
-
-os:
-  - osx
-  - linux
 
 env:
   - DB_TYPE=sqlite
