@@ -1,32 +1,45 @@
 language: generic
 
-sudo: required
+jobs:
+  include:
+    - stage: "Testing"
 
-os:
-  - osx
-  - linux
+      sudo: required
 
-env:
-  - DB_TYPE=sqlite
-  - DB_TYPE=postgres
-  - DB_TYPE=mysql
+      os: linux
 
-brew_packages:
-  - pyenv
+      env:
+        - DB_TYPE=sqlite
+        - DB_TYPE=postgres
+        - DB_TYPE=mysql
 
-before_install:
-  - sudo service mysql restart
-  - sudo service postgresql restart
-  - psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('timetracker') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u root -pnew_password
-  - sudo service mysql restart
-  - pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
+      brew_packages:
+        - pyenv
 
-install: pip install -Ur requirements.txt
+      apt_packages:
+        - mysql-server
+        - mysql-client
 
-before_script: python3 ci_configurator.py
+      before_install:
+        - sudo service mysql restart
+        - sudo service postgresql restart
+        - psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
+        - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('timetracker') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+        - sudo mysql_upgrade -u root -pnew_password
+        - sudo service mysql restart
+        - pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
 
-script: python3 -m timetracker --test
+      install: pip install -Ur requirements.txt
 
-after_script: cat config.json
+      before_script: python3 ci_configurator.py
+
+      script: python3 -m timetracker --test
+
+      after_script: cat config.json
+
+    - stage: "Build Binaries"
+      install: pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3 && pip install -Ur requirements.txt
+      script: pyinstaller timetracker/__main__.py -F
+      
+
+
