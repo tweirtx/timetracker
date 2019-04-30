@@ -8,14 +8,14 @@ config = {
     'minimum_hours': 0
 }
 
-if os.getenv("DB_URL") == "sqlite":
+if os.getenv("DB_TYPE") == "sqlite":
     print("Nothing to do!")
-elif os.getenv("DB_URL") == "postgres":
+elif os.getenv("DB_TYPE") == "postgres":
     print("Configuring postgres")
     subprocess.call('sudo -u postgres psql "CREATE USER timetracker; CREATE DATABASE timetracker;"')
     config['db_url'] = "postgres://timetracker:timetracker@localhost/timetracker"
     print("postgres is configured")
-elif os.getenv('DB_URL') == "mysql":
+elif os.getenv('DB_TYPE') == "mysql":
     print("Configuring mysql")
 else:
     print("I can't handle this!")
