@@ -1,0 +1,20 @@
+language: python
+
+services:
+  - postgresql
+  - mysql
+
+os:
+  - osx
+  - linux
+
+env:
+  - DB_TYPE=sqlite
+  - DB_TYPE=postgres
+  - DB_TYPE=mysql
+
+install: pip install -Ur requirements.txt
+
+before_script: python3 ci_configurator.py
+script: python3 -m timetracker --test
+after_script: cat config.json
