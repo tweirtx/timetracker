@@ -32,7 +32,7 @@ jobs:
       - stage: test
         env: DB_TYPE=mysql
         os: linux
-        before_install: mysql mysql < ci_mysql.sql
+        before_install: cat ci_mysql.sql | mysql mysql
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
