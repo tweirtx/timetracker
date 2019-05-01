@@ -9,9 +9,7 @@ services:
 brew_packages:
   - pyenv
 
-before_install:
-  - psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
-  - pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
+before_install: pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
 
 install: pip install -Ur requirements.txt
 
@@ -26,6 +24,7 @@ jobs:
       - stage: test
         env: DB_TYPE=postgres
         os: linux
+        before_install: psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
