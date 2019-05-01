@@ -9,6 +9,9 @@ services:
 brew_packages:
   - pyenv
 
+apt_packages:
+  - libmysqlclient-dev
+
 install: pyenv install 3.6.3 -f && pyenv global 3.6.3 && pip install -Ur requirements.txt
 
 jobs:

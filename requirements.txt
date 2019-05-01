@@ -4,3 +4,4 @@ flask_table
 pyinstaller
 psycopg2-binary
 pymysql
+mysqlclient
