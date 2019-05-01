@@ -2,12 +2,11 @@ language: generic
 
 sudo: required
 
+services:
+  - mysql
+
 brew_packages:
   - pyenv
-
-apt_packages:
-  - mysql-server
-  - mysql-client
 
 before_install:
   - sudo service mysql restart
