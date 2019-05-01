@@ -2,3 +2,4 @@ sqlalchemy
 flask
 flask_table
 pyinstaller
+psycopg2-binary
