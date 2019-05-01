@@ -13,7 +13,7 @@ before_install:
   - sudo service mysql restart
   - sudo service postgresql restart
   - psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD(timetracker) where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('timetracker') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade -u root -ptimetracker
   - sudo service mysql restart
   - pyenv versions && pyenv install 3.6.3 -f && pyenv global 3.6.3
