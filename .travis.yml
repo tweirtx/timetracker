@@ -4,7 +4,7 @@ sudo: required
 
 services:
   - mysql
-  - postgres
+  - postgresql
 
 brew_packages:
   - pyenv
@@ -22,13 +22,14 @@ jobs:
       - stage: test
         env: DB_TYPE=postgres
         os: linux
-        before_install: psql -c "create database timetracker;" -U postgres && psql -c "create user timetracker password 'timetracker';" -U postgres
+        before_install: psql -f ci.sql -U postgres
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
       - stage: test
         env: DB_TYPE=mysql
         os: linux
+        before_install: mysql mysql < ci.sql
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
