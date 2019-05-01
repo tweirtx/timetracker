@@ -1,3 +1,3 @@
-CREATE DATABASE timetracker;
+CREATE DATABASE timetracking;
 CREATE USER timetracker IDENTIFIED BY 'timetracker';
-GRANT ALL ON timetracker TO timetracker;
+GRANT ALL ON timetracking TO timetracker;

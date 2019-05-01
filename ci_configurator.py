@@ -13,7 +13,7 @@ elif os.getenv("DB_TYPE") == "postgres":
     config['db_url'] = "postgres://timetracker:timetracker@localhost/timetracker"
 elif os.getenv('DB_TYPE') == "mysql":
     print("Configuring mysql")
-    config['db_url'] = "mysql://timetracker:timetracker@localhost/timetracker"
+    config['db_url'] = "mysql://timetracker:timetracker@localhost/timetracking"
 else:
     print("I can't handle this!")
 
