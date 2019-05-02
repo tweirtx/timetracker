@@ -12,6 +12,7 @@ def run():
         time.sleep(1)
 
         result = signer.sign("test01")
+        print(result)
         if result == "Successfully signed Test01 in" and session.query(db.Members).\
                 filter_by(user_id='test01', signed_in=True).one_or_none():
             print("Sign-in test01 success")
@@ -20,7 +21,9 @@ def run():
             exit(1)
 
         time.sleep(1)
+
         result = signer.sign("test01")
+        print(result)
         if result == "Successfully signed Test01 out" and session.query(db.Members).\
                 filter_by(user_id='test01', signed_in=False).one_or_none():
             print("Sign-out test01 success")
@@ -35,6 +38,7 @@ def run():
         time.sleep(1)
 
         result = signer.sign("test02")
+        print(result)
         if result == "Successfully signed Test02 in" and session.query(db.Members).\
                 filter_by(user_id='test02', signed_in=True).one_or_none():
             print("Sign-in test02 success")
@@ -45,6 +49,7 @@ def run():
         time.sleep(1)
 
         result = signer.sign("000000")
+        print(result)
         if result == "Successfully signed out 2 members!" and session.query(db.Members). \
                 filter_by(user_id='test01', signed_in=False).one_or_none() and session.query(db.Members). \
                 filter_by(user_id='test02', signed_in=False).one_or_none():
