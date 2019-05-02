@@ -22,6 +22,7 @@ def sign(user_id):
             mem.signed_in = False
             session.add(VerboseLogs(user_id=mem.user_id, signing_in=False, current_datetime=datetime.datetime.now()))
             session.commit()
+            print(mem.name)
             return "Successfully signed {} out".format(mem.name)
         elif not mem.signed_in:
             mem.sign_in_time = datetime.datetime.now()
