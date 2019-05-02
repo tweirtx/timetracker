@@ -26,6 +26,7 @@ def run():
         print(result)
         query_result = session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none()
         print(query_result)
+        print("test01 exists in DB: ", session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none())
         if result == "Successfully signed Test01 out" and query_result:
             print("Sign-out test01 success")
         else:
