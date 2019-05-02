@@ -21,7 +21,7 @@ def run():
             exit(1)
 
         time.sleep(1)
-
+        session.commit()
         result = signer.sign("test01")
         print(result)
         time.sleep(1)
