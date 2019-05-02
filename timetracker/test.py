@@ -24,6 +24,7 @@ def run():
 
         result = signer.sign("test01")
         print(result)
+        time.sleep(1)
         query_result = session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none()
         print(query_result)
         print("test01 exists in DB: ", session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none())
