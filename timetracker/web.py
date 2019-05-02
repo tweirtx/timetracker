@@ -9,7 +9,6 @@ app = flask.Flask('timetracker')
 
 
 class ReportTable(Table):
-
     name = Col('Name')
     hours = Col('Hours')
     has_made_hours = Col('Has made hours')
