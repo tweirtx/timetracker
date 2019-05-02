@@ -14,6 +14,7 @@ def sign(user_id):
         return "Successfully signed out {} members!".format(count)
     with Session() as session:
         mem = session.query(Members).filter_by(user_id=user_id).one_or_none()
+        print(type(mem.signed_in))
         if not mem:
             return "Error: Member not found"
         elif mem.signed_in or mem.signed_in == 1:
