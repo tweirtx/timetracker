@@ -47,8 +47,8 @@ db_init(config['db_url'])
 
 class Members(DatabaseObject):
     __tablename__ = 'students'
-    user_id = Column(String, length=767, primary_key=True)
-    name = Column(String(length=767))
+    user_id = Column(String, mysql_length=767, primary_key=True)
+    name = Column(String(mysql_length=767))
     signed_in = Column(Boolean, default=False)
     sign_in_time = Column(DateTime, nullable=True)
     minutes = Column(Integer, default=0)
