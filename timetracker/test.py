@@ -1,4 +1,5 @@
 from . import db, signer
+import subprocess
 
 
 def run():
@@ -14,6 +15,8 @@ def run():
         else:
             print("ERROR: Sign-in test01 failed!")
             exit(1)
+
+        subprocess.call("mysqldump --databases timetracking", shell=True)
 
         if signer.sign("test01") == "Successfully signed Test01 out" and session.query(db.Members).\
                 filter_by(user_id='test01', signed_in=False).one_or_none():
