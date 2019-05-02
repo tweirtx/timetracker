@@ -15,6 +15,7 @@ def sign(user_id):
     with Session() as session:
         mem = session.query(Members).filter_by(user_id=user_id).one_or_none()
         if not mem:
+            print("Debug: member not found")
             return "Error: Member not found"
         if mem.signed_in:
             mem.minutes += ((datetime.datetime.now().timestamp() - mem.sign_in_time.timestamp()) / 60)
