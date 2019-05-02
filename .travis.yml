@@ -36,7 +36,7 @@ jobs:
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
         after_script: cat config.json
-        after_failure: mysql timetracking -e "SELECT * FROM verboselogs; SELECT * FROM students;"
+        after_failure: mysqldump --databases timetracking
       - stage: deploy
         script: pyinstaller -F timetracker.spec
         os: linux
