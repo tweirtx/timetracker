@@ -60,4 +60,5 @@ def run():
         else:
             print("ERROR: Sign all out failed!")
             exit(1)
+        print("Ending")
     print("Tests passed!")
