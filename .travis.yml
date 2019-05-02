@@ -21,22 +21,19 @@ jobs:
         os: linux
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
-        after_script: cat config.json
       - stage: test
         env: DB_TYPE=postgres
         os: linux
         before_install: psql -f ci_pg.sql -U postgres
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
-        after_script: cat config.json
       - stage: test
         env: DB_TYPE=mysql
         os: linux
         before_install: cat ci_mysql.sql | mysql mysql -v && sudo service mysql restart
         before_script: python3 ci_configurator.py
         script: python3 -m timetracker --test
-        after_script: cat config.json
-        after_failure: mysqldump --databases timetracking
+        after_script: mysqldump --databases timetracking
       - stage: deploy
         script: pyinstaller -F timetracker.spec
         os: linux
