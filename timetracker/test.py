@@ -8,7 +8,7 @@ def run():
         session.add(db.Members(user_id="test01", name="Test01"))
         session.add(db.Members(user_id="test02", name="Test02"))
 
-        #time.sleep(1)
+        time.sleep(1)
 
         result = signer.sign("test01")
         #print(result)
@@ -19,11 +19,11 @@ def run():
             print("ERROR: Sign-in test01 failed!")
             exit(1)
 
-        #time.sleep(1)
+        time.sleep(1)
 
         result = signer.sign("test01")
         #print(result)
-        #time.sleep(1)
+        time.sleep(1)
         query_result = session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none()
         #print(query_result)
         #print("test01 exists in DB: ", session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none())
@@ -33,11 +33,11 @@ def run():
             print("ERROR: Sign-out test01 failed!")
             exit(1)
 
-        #time.sleep(1)
+        time.sleep(1)
 
         signer.sign("test01")
 
-        #time.sleep(1)
+        time.sleep(1)
 
         result = signer.sign("test02")
         #print(result)
@@ -48,7 +48,7 @@ def run():
             print("ERROR: Sign-in test02 failed!")
             exit(1)
 
-        #time.sleep(1)
+        time.sleep(1)
 
         result = signer.sign("000000")
         #print(result)
