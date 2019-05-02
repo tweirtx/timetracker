@@ -20,8 +20,9 @@ def run():
             print("ERROR: Sign-in test01 failed!")
             exit(1)
 
-        time.sleep(1)
+    time.sleep(1)
 
+    with db.Session() as session:
         result = signer.sign("test01")
         #print(result)
         time.sleep(1)
@@ -36,10 +37,11 @@ def run():
 
         time.sleep(1)
 
-        signer.sign("test01")
+    signer.sign("test01")
 
-        time.sleep(1)
+    time.sleep(1)
 
+    with db.Session() as session:
         result = signer.sign("test02")
         #print(result)
         if result == "Successfully signed Test02 in" and session.query(db.Members).\
@@ -49,7 +51,9 @@ def run():
             print("ERROR: Sign-in test02 failed!")
             exit(1)
 
-        time.sleep(1)
+    time.sleep(1)
+
+    with db.Session() as session:
 
         result = signer.sign("000000")
         #print(result)
