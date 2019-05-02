@@ -21,9 +21,6 @@ def run():
         time.sleep(1)
 
         if signer.sign("test01") == "Successfully signed Test01 out" and session.query(db.Members).\
-                filter_by(user_id='test01', signed_in=0).one_or_none():
-            print("Sign-out test01 success")
-        elif signer.sign("test01") == "Successfully signed Test01 out" and session.query(db.Members).\
                 filter_by(user_id='test01', signed_in=False).one_or_none():
             print("Sign-out test01 success")
         else:
