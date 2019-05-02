@@ -1,4 +1,4 @@
-"""Provides database storage"""
+"""Provides database storage for TimeTracker"""
 
 import sqlalchemy
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
