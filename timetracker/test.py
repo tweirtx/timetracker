@@ -24,10 +24,9 @@ def run():
 
         result = signer.sign("test01")
         print(result)
-        result_equals = result == "Successfully signed Test01 out"
-        print(result_equals)
-        if result_equals and session.query(db.Members).\
-                filter_by(user_id='test01', signed_in=False).one_or_none():
+        query_result = session.query(db.Members).filter_by(user_id='test01', signed_in=False).one_or_none()
+        print(query_result)
+        if result == "Successfully signed Test01 out" and query_result:
             print("Sign-out test01 success")
         else:
             print("ERROR: Sign-out test01 failed!")
