@@ -10,7 +10,7 @@ def run():
         session.commit()
 
         time.sleep(1)
-    with db.Session(autocommit=True) as session:
+    with db.Session() as session:
         result = signer.sign("test01")
         #print(result)
         if result == "Successfully signed Test01 in" and session.query(db.Members).\
