@@ -40,3 +40,6 @@ jobs:
       - stage: deploy
         script: pyinstaller -F timetracker.spec
         os: osx
+
+notifications:
+  email: false
