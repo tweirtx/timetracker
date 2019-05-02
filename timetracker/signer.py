@@ -15,16 +15,15 @@ def sign(user_id):
     with Session() as session:
         mem = session.query(Members).filter_by(user_id=user_id).one_or_none()
         if not mem:
-            print("Debug: member not found")
             return "Error: Member not found"
-        if mem.signed_in:
+        if mem.signed_in or mem.signed_in == 1:
             mem.minutes += ((datetime.datetime.now().timestamp() - mem.sign_in_time.timestamp()) / 60)
             mem.sign_in_time = None
             mem.signed_in = False
             session.add(VerboseLogs(user_id=mem.user_id, signing_in=False, current_datetime=datetime.datetime.now()))
             session.commit()
             return "Successfully signed {} out".format(mem.name)
-        if not mem.signed_in:
+        if not mem.signed_in or mem.signed_in == 0:
             mem.sign_in_time = datetime.datetime.now()
             mem.signed_in = True
             session.add(VerboseLogs(user_id=mem.user_id, signing_in=True, current_datetime=datetime.datetime.now()))
