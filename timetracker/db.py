@@ -56,7 +56,7 @@ class Members(DatabaseObject):
 
 class VerboseLogs(DatabaseObject):
     __tablename__ = 'verboselogs'
-    user_id = Column(String, primary_key=True)
+    user_id = Column(String(length=767), primary_key=True)
     signing_in = Column(Boolean, primary_key=True)
     current_datetime = Column(DateTime, primary_key=True)
 
