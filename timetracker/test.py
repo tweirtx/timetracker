@@ -7,6 +7,7 @@ def run():
 
         session.add(db.Members(user_id="test01", name="Test01"))
         session.add(db.Members(user_id="test02", name="Test02"))
+        session.commit()
 
         time.sleep(1)
 
