@@ -19,13 +19,13 @@ def sign(user_id):
         elif mem.signed_in or mem.signed_in == 1:
             mem.minutes += ((datetime.datetime.now().timestamp() - mem.sign_in_time.timestamp()) / 60)
             mem.sign_in_time = None
-            mem.signed_in = 0
+            mem.signed_in = False
             session.add(VerboseLogs(user_id=mem.user_id, signing_in=False, current_datetime=datetime.datetime.now()))
             session.commit()
             return "Successfully signed {} out".format(mem.name)
         elif not mem.signed_in or mem.signed_in == 0:
             mem.sign_in_time = datetime.datetime.now()
-            mem.signed_in = 1
+            mem.signed_in = True
             session.add(VerboseLogs(user_id=mem.user_id, signing_in=True, current_datetime=datetime.datetime.now()))
             session.commit()
             return "Successfully signed {} in".format(mem.name)
