@@ -2,3 +2,5 @@
 config.json
 timetracker.db
 venv/
+build/
+dist/

@@ -1,4 +1,4 @@
-from .signer import sign
+from timetracker.signer import sign
 
 
 def start():

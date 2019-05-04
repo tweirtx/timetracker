@@ -1,7 +1,7 @@
 import os
-from .signer import sign
-from .db import *
-from .config import config
+from timetracker.signer import sign
+from timetracker.db import *
+from timetracker.config import config
 import flask
 from flask_table import Table, Col
 
