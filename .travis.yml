@@ -17,6 +17,7 @@ addons:
     - pyenv
     - mysql
     - zlib
+    - xz
 
 install: pyenv versions && pyenv install 3.6.7 -s && pyenv global 3.6.7 && pip install -Ur requirements.txt
 
