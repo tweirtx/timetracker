@@ -13,7 +13,9 @@ services:
 addons:
   homebrew:
     update: true
-    packages: pyenv
+    packages:
+      - pyenv
+      - mysql
 
 install: pyenv versions && pyenv install 3.6.7 -s && pyenv global 3.6.7 && pip install -Ur requirements.txt
 
@@ -46,3 +48,5 @@ jobs:
 
 notifications:
   email: false
+
+deploy:
