@@ -4,6 +4,8 @@ sudo: required
 
 dist: xenial
 
+osx_image: xcode10.2
+
 services:
   - mysql
   - postgresql
