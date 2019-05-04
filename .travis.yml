@@ -19,7 +19,7 @@ addons:
     - zlib
     - xz
 
-install: pyenv versions && pyenv install 3.6-dev -s && pyenv global 3.6-dev && pip install -Ur requirements.txt
+install: pyenv versions && pyenv install 3.6.7 -s && pyenv global 3.6.7 && pip install -Ur requirements.txt
 
 jobs:
   include:
@@ -55,7 +55,7 @@ jobs:
 
   - stage: deploy
     script: "./build.sh"
-    before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" && export PATH="/home/travis/.pyenv/bin:$PATH" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
+    before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" && export PATH="/home/travis/.pyenv/bin:$PATH" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && export PYTHON_CONFIGURE_OPTS="--enable-framework"
     after_success: rename dist/timetracker dist/timetracker-macos
     os: osx
 
@@ -66,7 +66,9 @@ deploy:
   provider: releases
   api_key:
     secure: ZnoHybCmh0jEigr5vvf7pVrQ3efDlWytf8SFUj7eMZMRRzxieQ4HFYnpyl2TfFg7IZLkEBJrptfRbUVygHfMp2lAGLtERQPSFrV+QBOiWlo2QGK2n4c1Vh7IVg0D4PgQepKN4SvdFSByysO0w3rg+PbF8XC9MLot3wvLXDABsra1RBcU4vG8X2NROHguyXQDK1TFpVEeaeS/6xjJgRLGBHUQNC2xNJ3lGaJtxaHOrvXAZutKP1N/WwHUF0DgNHlGb1SvY9zgkL9u0lN01oqxkon7zsLpiM8bg1N9f9sM7mJy6i+npf9RUTcitgHumQNg5ADn+tyNgeng9XFWSIE+PpQ94RZtpjLGZjtf6eNA5zh23yk61TXeMYZnqmJDZK9p7rgHn8ZCxBvhSyEEiPDXaZrbRXPwYyWbB5DSZBQzsJceUGaCy0g0L0jNk6aQ71bs5SqGNjKo6eifgnp9Yj5BuWTUy++r8TytyuBf997w+G2dQtZIZYKiYsTw0QT3AD7/lOzYS/R+fPRS3uUFWzrXGOiqs2S5Y1RCyEboPizfLTNQ4JqANpMRbcNQdC7ZM0y+AwGTKhv9WFCct7Z0jLePWuV1hTpWZXkO7crVrop8E0/u2OjGvtMUzVY6d4+raQ2qkhNTzvSGYCc31DYVv80DjhPKfBTl9p8KuxutJTgvwHw=
-  file: dist/timetracker-$TRAVIS_OS_NAME
+  file:
+    - dist/timetracker-linux
+    - dist/timetracker-macos
   on:
     repo: tweirtx/timetracker
     tags: true
