@@ -50,11 +50,13 @@ jobs:
 
   - stage: deploy
     script: "./build.sh"
+    after_success: rename dist/timetracker dist/timetracker-linux
     os: linux
 
   - stage: deploy
     script: "./build.sh"
-    after_success: rename dist/timetracker dist/timetracker-$TRAVIS_OS_NAME
+    before_install: xcode-select --install
+    after_success: rename dist/timetracker dist/timetracker-macos
     os: osx
 
 notifications:
