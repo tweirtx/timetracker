@@ -8,11 +8,10 @@ services:
   - mysql
   - postgresql
 
-brew_packages:
-  - pyenv
-
-apt_packages:
-  - libmysqlclient-dev
+addons:
+  homebrew:
+    update: true
+    packages: pyenv
 
 install: pyenv versions && pyenv install 3.6.7 -s && pyenv global 3.6.7 && pip install -Ur requirements.txt
 
@@ -37,10 +36,10 @@ jobs:
         script: python3 -m timetracker --test
         after_script: mysqldump --databases timetracking
       - stage: deploy
-        script: build.sh
+        script: ./build.sh
         os: linux
       - stage: deploy
-        script: build.sh
+        script: ./build.sh
         os: osx
 
 notifications:
