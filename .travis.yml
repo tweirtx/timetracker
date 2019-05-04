@@ -51,12 +51,14 @@ jobs:
   - stage: deploy
     script: "./build.sh"
     after_success: mv dist/timetracker dist/timetracker-linux && ls dist
+    cleanup: false
     os: linux
 
   - stage: deploy
     script: "./build.sh"
     before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" && export PATH="/home/travis/.pyenv/bin:$PATH" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && export PYTHON_CONFIGURE_OPTS="--enable-framework"
     after_success: mv dist/timetracker dist/timetracker-macos && ls dist
+    cleanup: false
     os: osx
 
 notifications:
