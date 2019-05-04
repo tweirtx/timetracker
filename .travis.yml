@@ -55,7 +55,7 @@ jobs:
 
   - stage: deploy
     script: "./build.sh"
-    before_install: xcode-select --install
+    before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
     after_success: rename dist/timetracker dist/timetracker-macos
     os: osx
 
