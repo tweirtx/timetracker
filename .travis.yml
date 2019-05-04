@@ -55,7 +55,7 @@ jobs:
 
   - stage: deploy
     script: "./build.sh"
-    before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+    before_install: export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" && export PATH="/home/travis/.pyenv/bin:$PATH" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
     after_success: rename dist/timetracker dist/timetracker-macos
     os: osx
 
