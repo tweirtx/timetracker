@@ -13,8 +13,7 @@ a = Analysis(['timetracker/__main__.py'],
                 'flask_table',
                 'psycopg2-binary',
                 'pymysql',
-                'mysqlclient',
-                '.'
+                'mysqlclient'
              ],
              hookspath=[],
              runtime_hooks=[],
