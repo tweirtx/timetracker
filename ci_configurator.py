@@ -14,6 +14,9 @@ elif os.getenv("DB_TYPE") == "postgres":
 elif os.getenv('DB_TYPE') == "mysql":
     print("Configuring mysql")
     config['db_url'] = "mysql://timetracker:timetracker@localhost/timetracking"
+elif os.getenv('DB_TYPE') == "mssql":
+    print("Configuring MSSQL")
+    config['db_url'] = "mssql://sa:Password12!@localhost/master"
 else:
     print("I can't handle this!")
 
