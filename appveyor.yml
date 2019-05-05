@@ -6,7 +6,7 @@ environment:
 
 test_script:
   - cmd: C:\Python36-x64\python -m timetracker --test
-  - cmd: timetracker.exe --test
+  - cmd: dist/timetracker.exe --test
 
 install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
