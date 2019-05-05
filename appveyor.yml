@@ -5,8 +5,8 @@ environment:
   DB_TYPE: mssql
 
 test_script:
-  - cmd: C:\Python36\python -m timetracker --test
+  - cmd: C:\Python36-x64\python -m timetracker --test
 
 install:
-  - C:\Python36\Scripts\pip install -Ur requirements.txt
-  - C:\Python36\python ci_configurator.py
+  - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
+  - C:\Python36-x64\python ci_configurator.py
