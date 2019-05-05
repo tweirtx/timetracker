@@ -8,6 +8,6 @@ test_script:
   - cmd: C:\Python36\python -m timetracker --test
 
 install:
-  - dir C:\
+  - dir C:\Python36
   - C:\Python36\pip install -Ur requirements.txt
   - C:\Python36\python ci_configurator.py
