@@ -13,5 +13,8 @@ install:
 
 build: off
 
-#build_script:
+before_after:
+  - type config.json
+
+  #build_script:
 #  - pyinstaller -F timetracker.spec
