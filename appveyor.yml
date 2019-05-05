@@ -14,3 +14,11 @@ install:
 
 build_script:
   - C:\Python36-x64\Scripts\pyinstaller -F timetracker.spec
+
+deploy:
+  - provider: GitHub
+    auth_token:
+      secure: nESUbdF6Dm6zQNu98xP8XwgDxtlCc3lqh8b33bNUMRdf4hAd5KoyV74VnkMYOYwa
+    on:
+      branch: master
+      APPVEYOR_REPO_TAG: true
