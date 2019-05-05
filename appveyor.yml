@@ -11,5 +11,7 @@ install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
   - C:\Python36-x64\python ci_configurator.py
 
-build_script:
-  - pyinstaller -F timetracker.spec
+build: off
+
+#build_script:
+#  - pyinstaller -F timetracker.spec
