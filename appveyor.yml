@@ -11,6 +11,9 @@ install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
   - C:\Python36-x64\python ci_configurator.py
 
+artifacts:
+  - path: dist/timetracker.exe
+    name: timetracker
 
 build_script:
   - C:\Python36-x64\Scripts\pyinstaller -F timetracker.spec
@@ -22,7 +25,4 @@ deploy:
     on:
       branch: master
       APPVEYOR_REPO_TAG: true
-    artifacts: timetracker.exe
-
-before_deploy:
-  - cmd: move dist\timetracker.exe timetracker.exe
+    artifacts: timetracker
