@@ -17,4 +17,4 @@ after_test:
   - type config.json
 
 build_script:
-  - pyinstaller -F timetracker.spec
+  - ps: pyinstaller -F timetracker.spec
