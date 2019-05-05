@@ -15,4 +15,4 @@ after_test:
   - type config.json
 
 build_script:
-  - C:\Python36-x64\python -m pyinstaller -F timetracker.spec
+  - C:\Python36-x64\Scripts\pyinstaller -F timetracker.spec
