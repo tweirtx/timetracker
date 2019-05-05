@@ -5,3 +5,4 @@ pyinstaller
 psycopg2-binary
 pymysql
 mysqlclient
+pymssql
