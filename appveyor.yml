@@ -13,7 +13,7 @@ install:
 
 build: off
 
-before_after:
+after_test:
   - type config.json
 
   #build_script:
