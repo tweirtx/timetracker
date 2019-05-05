@@ -22,4 +22,4 @@ deploy:
     on:
       branch: master
       APPVEYOR_REPO_TAG: true
-    artifact: dist/timetracker.exe
+    artifact: dist\timetracker.exe
