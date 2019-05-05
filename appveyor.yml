@@ -16,5 +16,5 @@ build: off
 after_test:
   - type config.json
 
-  #build_script:
-#  - pyinstaller -F timetracker.spec
+build_script:
+  - pyinstaller -F timetracker.spec
