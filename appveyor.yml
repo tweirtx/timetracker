@@ -5,7 +5,6 @@ environment:
   DB_TYPE: mssql
 
 test_script:
-  - cmd: C:\Python36-x64\python -m timetracker --test
   - cmd: dist\timetracker.exe --test
 
 install:
