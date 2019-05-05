@@ -6,13 +6,12 @@ environment:
 
 test_script:
   - cmd: C:\Python36-x64\python -m timetracker --test
+  - cmd: timetracker.exe --test
 
 install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
   - C:\Python36-x64\python ci_configurator.py
 
-after_test:
-  - type config.json
 
 build_script:
   - C:\Python36-x64\Scripts\pyinstaller -F timetracker.spec
