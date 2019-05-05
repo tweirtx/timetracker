@@ -1,5 +1,4 @@
 sqlalchemy
-Cython
 flask
 flask_table
 pyinstaller
