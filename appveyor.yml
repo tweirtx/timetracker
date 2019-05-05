@@ -10,11 +10,10 @@ test_script:
 install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
   - C:\Python36-x64\python ci_configurator.py
-
-build: off
+  - set PATH=C:\Python36-x64;%PATH%
 
 after_test:
   - type config.json
 
 build_script:
-  - ps: pyinstaller -F timetracker.spec
+  - pyinstaller -F timetracker.spec
