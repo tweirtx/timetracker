@@ -12,8 +12,6 @@ run `./timetracker-linux`. For web mode, run `./timetracker-linux --web`.
 `cd` to your timetracker directory and run `sudo chmod +x timetracker-macos`. To start in console mode,
 run `./timetracker-macos`. For web mode, run `./timetracker-macos --web`.
 
-Until I have someone test this assume this is wrong.
-
 ## Windows
 The first time you run timetracker, you will probably get a SmartScreen alert. This is because I 
 haven't figured out code signing yet. Click on more info followed by Run Anyway. You will not
