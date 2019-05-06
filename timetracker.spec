@@ -6,7 +6,10 @@ block_cipher = None
 a = Analysis(['timetracker/__main__.py'],
              pathex=['/home/travis/PycharmProjects/timetracker'],
              binaries=[],
-             datas=[],
+             datas=[
+                 ('index.html', '.'),
+                 ('submit.js', '.')
+             ],
              hiddenimports=[
                 'sqlalchemy',
                 'flask',
