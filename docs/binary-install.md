@@ -9,8 +9,10 @@ Place it in its own folder for best results.
 run `./timetracker-linux`. For web mode, run `./timetracker-linux --web`.
 
 ## macOS
-Insert macOS instructions here (use the Linux directions, subbing in macos where Linux is now, 
-until I find a Mac to test on).
+`cd` to your timetracker directory and run `sudo chmod +x timetracker-macos`. To start in console mode,
+run `./timetracker-macos`. For web mode, run `./timetracker-macos --web`.
+
+Until I have someone test this assume this is wrong.
 
 ## Windows
 The first time you run timetracker, you will probably get a SmartScreen alert. This is because I 
