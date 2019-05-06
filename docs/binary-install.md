@@ -13,4 +13,9 @@ Insert macOS instructions here (use the Linux directions, subbing in macos where
 until I find a Mac to test on).
 
 ## Windows
-Insert Windows instructions here
+The first time you run timetracker, you will probably get a SmartScreen alert. This is because I 
+haven't figured out code signing yet. Click on more info followed by Run Anyway. You will not
+have to go through the SmartScreen process again after this. After this, you can run timetracker.exe
+either by double clicking on it or by `cd`ing to your timetracker directory and running `timetracker.exe`.
+
+For running the web server, `cd` to your timetracker directory in a command prompt and run ```timetracker.exe --web```.
