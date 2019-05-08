@@ -21,9 +21,9 @@ The minimum_hours parameter is used to specify how many hours a member must have
 as having made hours. This does not affect anything other than the Has Made Hours column on the
 report, however you can look at the hours column to see for yourself.
 
-## Adding students
-Currently there is no interface for adding students other than manipulating the database. This
-will be rectified in a future release.
+## Adding members
+Invoke TimeTracker with the --add-users flag. You will get dumped into a console where you enter user IDs and names and
+they are added to the database automatically.
 
 ## Reports
 Launch the web server using the correct invocation for your system, and visit http://localhost:5000/report 
