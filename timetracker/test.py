@@ -1,15 +1,11 @@
-from timetracker import db, signer
+from timetracker import db, signer, add_users
 import time
 
 
 def run():
-    with db.Session() as session:
-
-        session.add(db.Members(user_id="test01", name="Test01"))
-        session.add(db.Members(user_id="test02", name="Test02"))
-        session.commit()
-
-        time.sleep(1)
+    add_users.add_user("test01", "Test01")
+    add_users.add_user("test02", "Test02")
+    time.sleep(1)
     with db.Session() as session:
         result = signer.sign("test01")
         #print(result)
