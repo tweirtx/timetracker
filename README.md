@@ -6,6 +6,7 @@ An efficient method for tracking your team's attendance.
 * [Installation from binary](docs/binary-install.md)
 * [Installation from source](docs/source-install.md)
 * [Advanced database setup/multi-station support](docs/advanced.md)
+* [Dedicated Raspberry Pi setup](docs/dedicatedpi.md)
 
 # Support
 I hope you never have issues with TimeTracker, but if you do I am able to be reached at the 
