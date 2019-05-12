@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 curl pyenv.run | bash
 pyenv install 3.6.7
-sudo apt install libpq-dev libmariadbclient-dev freetds-dev
+sudo apt install libpq-dev libmariadbclient-dev freetds-dev -y
 git clone https://github.com/tweirtx/timetracker
 cd timetracker
 pyenv local 3.6.7
