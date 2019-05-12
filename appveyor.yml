@@ -9,6 +9,7 @@ test_script:
 
 install:
   - C:\Python36-x64\Scripts\pip install -Ur requirements.txt
+  - C:\Python36-x64\Scripts\pip install pyinstaller
   - C:\Python36-x64\python ci_configurator.py
 
 artifacts:
