@@ -4,4 +4,4 @@ flask_table
 psycopg2-binary
 pymysql
 mysqlclient
-pyobdc
+pyodbc
