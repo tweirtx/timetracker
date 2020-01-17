@@ -17,7 +17,7 @@ a = Analysis(['timetracker/__main__.py'],
                 'psycopg2-binary',
                 'pymysql',
                 'mysqlclient',
-                'pymssql'
+                'pyobdc'
              ],
              hookspath=[],
              runtime_hooks=[],

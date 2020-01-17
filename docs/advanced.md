@@ -48,4 +48,4 @@ timetracker user. Grant the Alter and Create Table permissions.
 
 The db_url schema for postgres is as follows: ```mssql+pymssql://user:password@host_ip_or_domain/db_name```.
 So assuming you use the defaults provided by my instructions, your URL would be 
-```"mssql+pymssql://timetracker:timetracker@localhost/timetracker"```.
+```"mssql+pyobdc://timetracker:timetracker@localhost/timetracker"```.

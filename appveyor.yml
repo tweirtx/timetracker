@@ -17,7 +17,7 @@ artifacts:
     name: timetracker
 
 build_script:
-  - C:\Python36-x64\Scripts\pyinstaller -F timetracker.spec
+  - C:\Python37-x64\Scripts\pyinstaller -F timetracker.spec
 
 deploy:
   - provider: GitHub

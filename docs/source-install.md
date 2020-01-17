@@ -3,7 +3,7 @@ If you don't trust binaries or they don't work for your system, don't worry! Thi
 designed to be easy to run from source.
 
 ## Install Python
-Install Python 3. I only test on 3.6 right now, but others should work fine. If you're on Windows,
+Install Python 3. I only test on 3.7 right now, but others should work fine. If you're on Windows,
 download from [here](https://python.org/download/windows). On Linux or MacOS, I suggest looking at
 [pyenv](https://github.com/pyenv/pyenv-installer) to manage Python installations on your system.
 
