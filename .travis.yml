@@ -18,9 +18,11 @@ addons:
     - mysql
     - zlib
     - xz
-    - freetds
+    - unixodbc-dev
   apt:
     update: true
+    packages:
+      - unixodbc-dev
 
 install: ./install_ci.sh
 
