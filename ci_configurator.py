@@ -16,7 +16,7 @@ elif os.getenv('DB_TYPE') == "mysql":
     config['db_url'] = "mysql://timetracker:timetracker@localhost/timetracking"
 elif os.getenv('DB_TYPE') == "mssql":
     print("Configuring MSSQL")
-    config['db_url'] = "mssql+pyodbc://sa:Password12!@localhost/master"
+    config['db_url'] = "mssql+pyodbc://sa:Password12!@localhost/master?driver=SQL+Server"
 else:
     print("I can't handle this!")
 
