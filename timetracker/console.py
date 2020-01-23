@@ -6,4 +6,6 @@ def start():
         try:
             print(sign(input("Please enter the user ID to sign in: ")))
         except KeyboardInterrupt:
-            exit(0)
+            print("You must be superuser to do that!")
+        except EOFError:
+            print("You must be superuser to do that!")

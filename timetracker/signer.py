@@ -1,17 +1,14 @@
 from .config import config
+from .commands import runconsole
 from .db import *
 import datetime
+import getpass
 
 
 def sign(user_id):
-    if user_id == config['signout_code']:
-        count = 0
-        with Session() as session:
-            members = session.query(Members).filter_by(signed_in=True)
-            for mem in members:
-                print(sign(mem.user_id))
-                count += 1
-        return "Successfully signed out {} members!".format(count)
+    if user_id == "su":
+        if getpass.getpass() == config['superuser_password']:
+            runconsole()
     with Session() as session:
         mem = session.query(Members).filter_by(user_id=user_id).one_or_none()
         if not mem:
