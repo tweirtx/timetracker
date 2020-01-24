@@ -75,3 +75,4 @@ deploy:
     on:
       repo: tweirtx/timetracker
       tags: true
+      condition: $TRAVIS_BUILD_STAGE_NAME == "Deploy"
