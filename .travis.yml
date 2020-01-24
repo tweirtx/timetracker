@@ -33,7 +33,7 @@ jobs:
     os: linux
     before_script: python3 ci_configurator.py
     script: python3 -m timetracker --test
-    deploy: false
+    deploy: skip
 
   - stage: test
     env: DB_TYPE=postgres
@@ -41,7 +41,7 @@ jobs:
     before_install: psql -f ci_pg.sql -U postgres
     before_script: python3 ci_configurator.py
     script: python3 -m timetracker --test
-    deploy: false
+    deploy: skip
 
   - stage: test
     env: DB_TYPE=mysql
@@ -50,7 +50,7 @@ jobs:
     before_script: python3 ci_configurator.py
     script: python3 -m timetracker --test
     after_script: mysqldump --databases timetracking
-    deploy: false
+    deploy: skip
 
 
   - stage: deploy
