@@ -1,7 +1,7 @@
 import smtplib
 from . import add_users
 from .db import *
-from .signer import sign
+from . import signer
 
 
 def report():
@@ -13,7 +13,7 @@ def signout():
     with Session() as session:
         members = session.query(Members).filter_by(signed_in=True)
         for mem in members:
-            print(sign(mem.user_id))
+            print(signer.sign(mem.user_id))
             count += 1
     return "Successfully signed out {} members!".format(count)
 
@@ -26,7 +26,22 @@ def exitme():
     exit(0)
 
 
+available_commands = {'signout': signout, 'adduser': add_users.run_console, 'edit': edit,
+                      'return': "call break later", 'exit': exitme, 'autoreport': report}
+command_string = "Available commands: \n"
+for command_name in available_commands.keys():
+    command_string += command_name + "\n"
+
+
 def runconsole():
     print("Superuser mode entered!")
-    available_commands = {'signout': signout, 'adduser': add_users.run_console, 'edit': edit,
-                          'return': return "Superuser exited", 'exit': exitme, 'autoreport': report}
+    while True:
+        print(command_string)
+        command = input("Please enter your chosen command: ")
+        if command == "return":
+            break
+        try:
+            available_commands[command]()
+        except KeyError:
+            print("Invalid command!")
+        print("\n")
