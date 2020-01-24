@@ -9,7 +9,7 @@ config = {
     "email_to_address": "CHANGEME",
     "email_from_address": "CHANGEME",
     "email_from_server": "CHANGEME",
-    "email_from_password": "NOTASECRET"
+    "email_from_password": "CHANGEME"
 }
 config_file = 'config.json'
 

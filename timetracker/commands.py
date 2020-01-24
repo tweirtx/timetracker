@@ -1,11 +1,29 @@
+import datetime
 import smtplib
 from . import add_users
+from .config import config
 from .db import *
 from . import signer
+from . import web
 
 
 def report():
-    print("fridge")
+    for config_item in config.keys():
+        if "email" in config_item:
+            if "CHANGEME" in config[config_item]:
+                print("Email not configured!")
+                return
+    emailer = smtplib.SMTP(host=config['email_from_server'])
+    emailer.ehlo()
+    emailer.starttls()
+    emailer.login(config['email_from_address'], config['email_from_password'])
+    msg = smtplib.email.message.EmailMessage()
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload("<html>\n" + web.report() + "\n</html>")
+    msg['subject'] = "TimeTracker Report " + str(datetime.date.today())
+    msg['From'] = f"TimeTracker <{config['email_from_address']}>"
+    emailer.send_message(msg, to_addrs=[config['email_to_address']])
+    print("Email sent!")
 
 
 def signout():
