@@ -6,7 +6,7 @@ import datetime
 
 def sign(user_id):
     if user_id == config['superuser_password']:
-        signout()
+        return signout()
     with Session() as session:
         mem = session.query(Members).filter_by(user_id=user_id).one_or_none()
         if not mem:
