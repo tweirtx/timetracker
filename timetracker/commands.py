@@ -37,7 +37,28 @@ def signout():
 
 
 def edit():
-    print("asdf")
+    with Session() as session:
+        user = input("Please enter the user ID you would like to edit: ")
+        result = session.query(Members).filter_by(user_id=user).one_or_none()
+        if result is None:
+            print("That user ID does not exist!")
+            return
+        else:
+            action = input("Please type the editing mode you would like to use. "
+                           "You may choose add, subtract, or absolute: ")
+            if action == "add":
+                amount = int(input("Please input the number of minutes you would like to add to their time: "))
+                result.minutes += amount
+            elif action == "subtract":
+                amount = int(input("Please input the number of minutes you would like to subtract from their time: "))
+                result.minutes -= amount
+            elif action == "absolute":
+                amount = int(input("Please input the number of minutes you would like to set their time to: "))
+                result.minutes = amount
+            else:
+                print("Invalid mode specifier!")
+                return
+    print("Edit successfully saved!")
 
 
 def exitme():
