@@ -65,8 +65,20 @@ def exitme():
     exit(0)
 
 
+def check():
+    with Session() as session:
+        user = input("Please enter the user ID you would like to check: ")
+        result = session.query(Members).filter_by(user_id=user).one_or_none()
+        if result is None:
+            print("That user ID does not exist!")
+            return
+        else:
+            hours = result.minutes / 60
+            print(f"{result.name} has {hours} hours on record!")
+
+
 available_commands = {'signout': signout, 'adduser': add_users.run_console, 'edit': edit,
-                      'return': "call break later", 'exit': exitme, 'autoreport': report}
+                      'return': "call break later", 'exit': exitme, 'autoreport': report, 'check': check}
 command_string = "Available commands: \n"
 for command_name in available_commands.keys():
     command_string += command_name + "\n"
